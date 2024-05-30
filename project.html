@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransitEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .form {
+            margin-top: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .route-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to TransitEase</h1>
+        <div class="form">
+            <input type="text" id="startPoint" placeholder="Enter start point">
+            <input type="text" id="endPoint" placeholder="Enter end point">
+            <button onclick="findRoute()">Find Route</button>
+        </div>
+        <div id="routeInfo" class="route-info"></div>
+    </div>
+
+    <script>
+        function findRoute() {
+            const startPoint = document.getElementById('startPoint').value;
+            const endPoint = document.getElementById('endPoint').value;
+
+            // Sample route suggestion
+            const suggestedRoute = suggestRoute(startPoint, endPoint);
+
+            // Display route information
+            displayRouteInfo(suggestedRoute);
+        }
+
+        function suggestRoute(startPoint, endPoint) {
+            // Your route suggestion algorithm here
+            // This is just a placeholder for demonstration
+            return `Suggested route from ${startPoint} to ${endPoint}: Bus -> Rickshaw -> Walk`;
+        }
+
+        function displayRouteInfo(route) {
+            const routeInfoDiv = document.getElementById('routeInfo');
+            routeInfoDiv.innerHTML = `<p><strong>Suggested Route:</strong> ${route}</p>`;
+        }
+    </script>
+</body>
+</html>
